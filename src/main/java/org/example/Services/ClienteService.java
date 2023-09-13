@@ -27,31 +27,31 @@ public class ClienteService {
         return clienteRepository.findAll();
     }
 
-    public boolean save(Cliente country) throws Exception {
-        if (country == null)
-            throw new IllegalArgumentException("País fornecida é nulo");
-        if (country.getNome() == null || country.getNome().trim().isEmpty())
-            throw new IllegalArgumentException("Nome do País é inválido");
+    public boolean save(Cliente cliente) throws Exception {
+        if (cliente == null)
+            throw new IllegalArgumentException("Cliente fornecido é nulo");
+        if (cliente.getNome() == null || cliente.getNome().trim().isEmpty())
+            throw new IllegalArgumentException("Nome do Cliente é inválido");
 
-        clienteRepository.save(country);
+        clienteRepository.save(cliente);
         return true;
     }
 
-    public boolean update(Cliente country) throws Exception {
-        if (country == null)
-            throw new IllegalArgumentException("Artista fornecida é nulo");
-        if ( country.getId() == 0) //country.getId() == null ||
-            throw new IllegalArgumentException("Id do artista fornecida é nulo");
-        if (country.getNome() == null || country.getNome().trim().isEmpty())
-            throw new IllegalArgumentException("Nome do artista é inválido");
+    public boolean update(Cliente cliente) throws Exception {
+        if (cliente == null)
+            throw new IllegalArgumentException("Cliente fornecida é nulo");
+        if ( cliente.getId() == 0) //country.getId() == null ||
+            throw new IllegalArgumentException("Id do Cliente fornecido é nulo");
+        if (cliente.getNome() == null || cliente.getNome().trim().isEmpty())
+            throw new IllegalArgumentException("Nome do Clinte é inválido");
 
-        clienteRepository.update(country);
+        clienteRepository.update(cliente);
         return true;
     }
 
     public boolean delete(Long id) throws Exception {
         if (id == null || id == 0)
-            throw new IllegalArgumentException("Id do artista fornecida é nulo");
+            throw new IllegalArgumentException("Id do Cliente fornecido é nulo");
         clienteRepository.delete(id);
         return true;
     }
